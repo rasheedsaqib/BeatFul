@@ -1,0 +1,60 @@
+@import "styles/variables";
+@import "styles/mixins";
+
+.reviews{
+  margin: 5rem 0;
+  display: grid;
+  grid-template-columns: 3fr 4fr;
+  justify-content: space-between;
+  grid-gap: 1rem;
+
+  .text{
+    .heading{
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin: 0 0 0.6rem 0;
+      font-weight: 400;
+      font-size: 16px;
+    }
+
+    h2{
+      margin: 0;
+      font-size: 42px;
+      font-weight: 900;
+      line-height: 110%;
+    }
+
+    p{
+      font-weight: 300;
+      font-size: 16px;
+    }
+
+    .name{
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 0;
+
+      span{
+        font-weight: 400;
+        font-size: 16px;}
+    }
+
+    .stars{
+      color: #FFB740;
+      margin-top: 0;
+
+      span{
+        font-size: 1.4rem;
+        margin: 0 0.4rem 0 0;
+      }
+    }
+  }
+
+  .image{
+    @include flex(flex, row, flex-end, flex-start);
+
+    img{
+      width: 90%;
+    }
+  }
+}

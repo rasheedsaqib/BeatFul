@@ -1,0 +1,52 @@
+@import "styles/variables";
+@import "styles/mixins";
+
+.hero{
+  margin: 8rem 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: flex-start;
+  justify-content: space-between;
+  grid-gap: 1rem;
+
+  .left{
+
+    .line2{
+      @include flex(flex, row, center, center);
+      margin: 0 0 2rem;
+      width: 70%;
+
+      img{
+        width: 250px;
+      }
+    }
+
+    h1{
+      font-size: 52px;
+      font-weight: 900;
+      line-height: 100%;
+      margin: 1rem 0;
+    }
+
+    p{
+      margin: 0 0 2rem 0;
+      font-size: 18px;
+      font-weight: 300;
+    }
+
+    a{
+      padding: 10px 25px;
+      background: $black;
+      color: $white;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 300;
+    }
+
+  }
+
+  .right{
+    margin-right: 20px;
+    justify-self: flex-end;
+  }
+}

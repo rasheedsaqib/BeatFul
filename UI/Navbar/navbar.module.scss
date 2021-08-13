@@ -1,0 +1,20 @@
+@import "styles/variables";
+@import "styles/mixins";
+
+.navbar{
+  margin: 2rem 2%;
+  @include flex(flex, row, space-between, center);
+
+  img{
+    width: 140px;
+  }
+
+  ul{
+    list-style: none;
+    @include flex(inline-flex, row, flex-start, flex-start);
+
+    li{
+      margin-left: 30px;
+    }
+  }
+}

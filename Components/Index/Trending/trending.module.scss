@@ -1,0 +1,66 @@
+@import "styles/variables";
+@import "styles/mixins";
+
+.trending{
+  margin: 3rem 0;
+
+  .top{
+    @include flex(flex, row, space-between, center);
+
+    .text{
+      p{
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin: 0;
+      }
+
+      h2{
+        margin: 0;
+        font-size: 42px;
+        font-weight: 900;
+      }
+    }
+
+    .change{
+      display: flex;
+
+      .prev, .next{
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        box-shadow: 0px 3px 6px rgba(0,0,0,0.1);
+        @include flex(inline-flex, row, center, center);
+        cursor: pointer;
+
+        span{
+          font-size: 1.5rem;
+        }
+      }
+
+      .prev{
+        background: $white;
+        margin-right: 1rem;
+        font-weight: bold;
+
+        span{
+          margin-right: 4px;
+        }
+      }
+
+      .next{
+        background: $black;
+        color: $white;
+
+        span{
+          margin-left: 4px;
+        }
+      }
+    }
+  }
+
+  .songs{
+    margin: 2rem -1rem;
+    @include flex(flex, row, space-between, flex-start);
+    flex-wrap: wrap;
+  }
+}

@@ -1,0 +1,173 @@
+@import "styles/variables";
+@import "styles/mixins";
+
+.song{
+  margin: 6rem 0;
+
+  .details{
+    @include flex(flex, row, space-between, center);
+
+    .name{
+      h1{
+        font-size: 36px;
+        font-weight: 900;
+
+        span{
+          font-size: 16px;
+          font-weight: 400;
+        }
+      }
+
+      .bottom{
+        @include flex(flex, row, flex-start, center);
+
+        .likes{
+          @include flex(inline-flex, row, center, center);
+          padding: 12px 24px;
+          background: $white;
+          box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+          border-radius: 100px;
+
+          p{
+            margin: 0 0 0 0.3rem;
+          }
+        }
+
+        p{
+          font-size: 18px;
+          margin: 0 0 0 0.6rem;
+        }
+      }
+    }
+
+    .cd{
+      margin-left: -1rem;
+      justify-self: flex-end;
+      @include flex(inline-flex, row, flex-start, center);
+      position: relative;
+      width: 780px;
+      height: 400px;
+
+      .disk{
+        position: relative;
+        width: 340px;
+        height: 340px;
+
+        .outer, .middle, .inner{
+          background: $white;
+          border-radius: 50%;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+
+        .outer{
+          width: 340px;
+          height: 340px;
+          z-index: 0;
+          box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+        }
+
+        .middle{
+          width: 300px;
+          height: 300px;
+          z-index: +1;
+          background-size: cover;
+        }
+
+        .inner{
+          width: 60px;
+          height: 60px;
+          z-index: +2;
+          @include flex(flex, row, center, center);
+
+          img{
+            width: 20px;
+            margin-bottom: 4px;
+          }
+        }
+      }
+
+      .cover{
+        width: 400px;
+        height: 400px;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+        background-size: cover;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: +4;
+        border: 10px solid $white;
+      }
+
+      .rotateDisk{
+        animation: rotate 10s linear infinite;
+      }
+
+    }
+  }
+
+  .controller{
+    margin: 5rem 0 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    .duration{
+      width: 450px;
+      position: relative;
+      height: 38px;
+
+      img{
+        width: 95%;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 0;
+      }
+
+      .line{
+        height: 3px;
+        width: 100%;
+        background: $black;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+      }
+    }
+
+    .actions{
+      margin: 0.5rem;
+      width: 350px;
+      @include flex(flex, row, space-between, center);
+
+      .prev, .next{
+        font-size: 1.4rem;
+        cursor: pointer;
+      }
+
+      .play{
+        font-size: 2rem;
+        cursor: pointer;
+      }
+    }
+
+    p{
+      font-size: 18px;
+      font-weight: 500;
+      margin: 0;
+    }
+  }
+}
+
+@keyframes rotate {
+  0%{
+    transform: rotate(0);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}

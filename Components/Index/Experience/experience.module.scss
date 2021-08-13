@@ -1,0 +1,80 @@
+@import "styles/variables";
+@import "styles/mixins";
+
+.experience{
+  margin: 3rem 0;
+  @include flex(flex, row, flex-start, center);
+
+  .image{
+    width: 400px;
+    position: relative;
+
+    img{
+      width: 400px;
+    }
+
+    .review{
+      padding: 0 20px;
+      border-radius: 10px;
+      background: $white;
+      position: absolute;
+      right: 0;
+      bottom: 3rem;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+
+      .emoji{
+        font-size: 20px;
+        @include flex(flex, row, space-around, center);
+        margin: -0.6rem 0 1rem 0;
+
+        span{
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .text{
+    margin-left: 5rem;
+
+    .heading{
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin: 0 0 0.6rem 0;
+      font-weight: 400;
+      font-size: 16px;
+    }
+
+    h2{
+      margin: 0;
+      font-size: 42px;
+      font-weight: 900;
+      line-height: 110%;
+    }
+
+    p{
+      font-weight: 300;
+      font-size: 18px;
+    }
+
+    .details{
+      @include flex(flex, row, flex-start, flex-start);
+
+      .detail{
+        margin-right: 3rem;
+
+        h3{
+          font-weight: 900;
+          font-size: 40px;
+          margin: 0 0 -0.6rem 0;
+        }
+
+        p{
+          font-weight: 300;
+          font-size: 18px;
+          margin: 0;
+        }
+      }
+    }
+  }
+}
