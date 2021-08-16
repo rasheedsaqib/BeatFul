@@ -1,11 +1,25 @@
 import styles from './artists.module.scss';
 import Artist from "../../UI/Artist/artist";
+import Song from "../../UI/Song/song";
+import {useRouter} from "next/router";
+import Link from "next/link";
 
 const Artists = props => {
+
+    const router = useRouter();
+    let page = +router.query.page;
+
+    if(!page){
+        page = 0;
+    }
+
+    const {artists} = props;
+    const start = page*9;
+
     return(
         <div className={styles.artists}>
             <div className={styles.top}>
-                <h1>Artists <span>(1-9 of 23)</span></h1>
+                <h1>Artists <span>{`(${start+1}-${artists.length < 9 ? artists.length : start+9} of ${artists.length})`}</span></h1>
                 <div className={styles.input}>
                     <input type='text' name='search' placeholder='Search'/>
                     <span><i className="fas fa-chevron-right" /></span>
@@ -13,26 +27,22 @@ const Artists = props => {
             </div>
 
             <div className={styles.allArtists}>
-                <Artist image='taylor.jpg' name='Taylor Swift' total='23' />
-                <Artist image='qb.jpg' name='Quratulain Balouch' total='10' />
-                <Artist image='sidhu.jpg' name='Sidhu Moose Wala' total='13' />
 
-
-                <Artist image='taylor.jpg' name='Taylor Swift' total='23' />
-                <Artist image='qb.jpg' name='Quratulain Balouch' total='10' />
-                <Artist image='sidhu.jpg' name='Sidhu Moose Wala' total='13' />
-
-
-                <Artist image='taylor.jpg' name='Taylor Swift' total='23' />
-                <Artist image='qb.jpg' name='Quratulain Balouch' total='10' />
-                <Artist image='sidhu.jpg' name='Sidhu Moose Wala' total='13' />
+                {
+                    artists.map((artist, index) => {
+                        if(index >= start && index < start+9){
+                            return(
+                                <Artist key={artist.name} image={'/thumbnails/' + artist.image + '.jpg'} name={artist.name} total={artist.songs} />
+                            )
+                        }
+                    })
+                }
 
             </div>
 
             <div className={styles.pages}>
-                <p>2</p>
-                <p>3</p>
-                <p>Next</p>
+                {page !== 0 ? <Link href={`/songs?page=${page-1}`}><a>Previous</a></Link> : null}
+                {page+1 !== Math.floor(artists.length/9) && artists.length>9 ? <Link href={`/songs?page=${page+1}`}><a>Next</a></Link> : null}
             </div>
         </div>
     )

@@ -1,18 +1,23 @@
 import styles from './song.module.scss';
+import {useEffect, useState} from "react";
+import axios from "axios";
 
 const Song = props => {
+
+    const {song} = props;
+
     return(
         <div className={styles.song}>
             <div className={styles.details}>
                 <div className={styles.name}>
-                    <h1>Faasle - By Quratulain Balouch & Kaavish <br /> <span>Coke Studio</span></h1>
+                    <h1>{song.title} <br /> <span>{song.artist}</span></h1>
 
                     <div className={styles.bottom}>
                         <div className={styles.likes}>
                             <span><i className="fas fa-heart" /></span>
-                            <p>238</p>
+                            <p>{song.likes}</p>
                         </div>
-                        <p>(2.3k Views)</p>
+                        <p>({song.views} Views)</p>
                     </div>
 
                 </div>
@@ -20,13 +25,13 @@ const Song = props => {
                 <div className={styles.cd}>
                     <div className={styles.disk + ' ' + styles.rotateDisk}>
                         <div className={styles.outer} />
-                        <div style={{backgroundImage: "url('/qb.jpg')"}} className={styles.middle} />
+                        <div style={{backgroundImage: `url(/thumbnails/${song.id}.jpg)`}} className={styles.middle} />
                         <div className={styles.inner} >
                             <img src='/logo.svg' />
                         </div>
                     </div>
 
-                    <div style={{backgroundImage: "url('/qb.jpg')"}} className={styles.cover} />
+                    <div style={{backgroundImage: `url(/thumbnails/${song.id}.jpg)`}} className={styles.cover} />
                 </div>
             </div>
 

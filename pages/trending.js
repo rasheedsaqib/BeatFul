@@ -1,11 +1,22 @@
 import Songs from "../Components/Songs/songs";
 import withWidth from "../HOC/withWidth/withWidth";
-import {Fragment} from "react";
+import {Fragment, useEffect, useState} from "react";
+import axios from "axios";
 
 const Trending = props => {
+
+    const [songs, setSongs] = useState([]);
+
+    useEffect(() => {
+        axios.get('/api/trending')
+            .then(res => {
+                setSongs(res.data);
+            });
+    }, []);
+
    return(
        <Fragment>
-           <Songs />
+           <Songs title='Trending' songs={songs} />
        </Fragment>
    )
 }

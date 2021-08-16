@@ -3,6 +3,7 @@
 
 .library{
   margin: 3rem 0;
+  overflow-x: hidden;
 
   .top{
     @include flex(flex, row, space-between, center);
@@ -61,6 +62,6 @@
   .artists{
     margin: 2rem -1rem;
     @include flex(flex, row, space-between, flex-start);
-    flex-wrap: wrap;
+    transition: 0.4s ease;
   }
 }

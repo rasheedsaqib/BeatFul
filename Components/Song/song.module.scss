@@ -8,6 +8,10 @@
     @include flex(flex, row, space-between, center);
 
     .name{
+      width: 65%;
+      padding-right: 2rem;
+      box-sizing: border-box;
+
       h1{
         font-size: 36px;
         font-weight: 900;

@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
-const songs = [
+export const songsDb = [
   { id: 'b1w7dndtos', title: 'Faasle - Kaavish & Quratulain Balouch', artist: 'Quratulain Balouch', likes: 364, views: 4937 },
   { id: 'g0nz8yircx', title: 'Latthay Di Chaadar - Quratulain Balouch', artist: 'Quratulain Balouch', likes: 310, views: 10458 },
   { id: 'xachb5smdeh', title: 'Woh Humsafar Tha - Quratulain Balouch', artist: 'Quratulain Balouch', likes: 290, views: 8506 },
@@ -53,6 +53,16 @@ const songs = [
   // { id: '3302taz9x2', title: '', artist: '', likes: 408, views: 7064 }
 ]
 
+export const artistsDB = [
+    {name: 'Quratulain Balouch', songs: 8, image: 'b1w7dndtos'},
+    {name: 'Sidhu Moose Wala', songs: 10, image: 'yisdv0989ch'},
+    {name: 'Taylor Swift', songs: 0, image: 'taylor'},
+
+    {name: 'Quratulain Balouch', songs: 8, image: 'b1w7dndtos'},
+    {name: 'Sidhu Moose Wala', songs: 10, image: 'yisdv0989ch'},
+    {name: 'Taylor Swift', songs: 0, image: 'taylor'},
+];
+
 export default (req, res) => {
-  res.status(200).json(songs);
+  res.status(200).json(songsDb);
 }

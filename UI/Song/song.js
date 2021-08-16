@@ -5,7 +5,7 @@ const Song = props => {
     return(
         <div className={styles.song}>
             <div className={styles.image}>
-                <Link href='/songs/1'><a>
+                <Link href={`/songs/${props.id}`}><a>
                     <img src={props.image} />
                 </a></Link>
                 <span style={{opacity: props.liked ? 1 : 0.4}}><i className="fas fa-heart" /></span>
