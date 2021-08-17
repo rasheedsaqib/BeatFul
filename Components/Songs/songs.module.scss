@@ -53,7 +53,7 @@
 
   .allSongs{
     margin: 2rem -1rem;
-    @include flex(flex, row, space-between, flex-start);
+    @include flex(flex, row, flex-start, flex-start);
     flex-wrap: wrap;
   }
 

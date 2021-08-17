@@ -2,22 +2,23 @@ import styles from './songs.module.scss';
 import Song from "../../UI/Song/song";
 import {useRouter} from "next/router";
 import Link from "next/link";
+import {useEffect, useRef, useState} from "react";
 
 const Songs = props => {
 
     const router = useRouter();
-    let page = +router.query.page;
+    let {page} = router.query;
 
-    if(!page){
+    if(page === undefined){
         page = 0;
     }
 
     const { songs } = props;
     const start = page*9;
 
-    if(page >= Math.floor(songs.length/9)){
+    // if(page >= Math.floor(songs.length/9)){
         // router.push('/404');
-    }
+    // }
 
     return(
         <div className={styles.songs}>
@@ -31,17 +32,15 @@ const Songs = props => {
 
             <div className={styles.allSongs}>
 
-                {
-                    songs.map((song, index) => {
-                        if(index >= start && index < start+9){
-                            return(
-                                <Song
-                                    key={song.id} id={song.id} title={song.title} image={`/thumbnails/${song.id}.jpg`}
-                                    artist={song.artist} likes={song.likes} views={song.views} />
-                            )
-                        }
-                    })
-                }
+                {songs.map((song, index) => {
+                    if(index >= start && index < start+9){
+                        return(
+                            <Song
+                                key={song.id} id={song.id} title={song.title} image={`/thumbnails/${song.id}.jpg`}
+                                artist={song.artist} likes={song.likes} views={song.views} />
+                        )
+                    }
+                })}
 
             </div>
 

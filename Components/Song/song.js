@@ -1,13 +1,42 @@
 import styles from './song.module.scss';
-import {useEffect, useState} from "react";
-import axios from "axios";
+import {useEffect, useRef, useState} from "react";
 
 const Song = props => {
 
     const {song} = props;
+    let audio = useRef(null);
+
+    const [playing, setPlaying] = useState(true);
+    const [currentTime, setCurrentTime] = useState('00:00');
+
+    useEffect(()=>{
+        audio.addEventListener('timeupdate', context => {
+            const s = parseInt(context.target.duration % 60);
+            const m = parseInt((context.target.duration / 60) % 60);
+
+            setCurrentTime(new Date(Math.floor(context.target.currentTime * 1000)).toISOString().substr(14, 5) + ' / ' + (m<10 ? '0'+m : m) +':'+ s);
+        })
+    }, [currentTime]);
+
+    const togglePlay = ()=>{
+        if (playing){
+            audio.pause();
+            setPlaying(false);
+        }
+        else {
+            audio.play();
+            setPlaying(true);
+        }
+    }
 
     return(
         <div className={styles.song}>
+
+            <audio autoPlay ref={el=>audio=el} src={`/audios/${song.id}.mp3`}>
+                Your browser does not support the
+                <code>audio</code> element.
+            </audio>
+
             <div className={styles.details}>
                 <div className={styles.name}>
                     <h1>{song.title} <br /> <span>{song.artist}</span></h1>
@@ -23,7 +52,7 @@ const Song = props => {
                 </div>
 
                 <div className={styles.cd}>
-                    <div className={styles.disk + ' ' + styles.rotateDisk}>
+                    <div className={playing ? styles.disk + ' ' + styles.rotateDisk : styles.disk}>
                         <div className={styles.outer} />
                         <div style={{backgroundImage: `url(/thumbnails/${song.id}.jpg)`}} className={styles.middle} />
                         <div className={styles.inner} >
@@ -42,10 +71,10 @@ const Song = props => {
                 </div>
                 <div className={styles.actions}>
                     <span className={styles.prev}><i className="fas fa-step-backward" /></span>
-                    <span className={styles.play}><i className="fas fa-play" /></span>
-                    <span className={styles.next}><i className="fas fa-step-forward" /></span>
+                    <span onClick={()=>togglePlay()} className={styles.play}> { playing ? (<i className="fas fa-pause"/>) : (<i className="fas fa-play" />) } </span>
+                    <span className={styles.next}><i className="fas fa-step-forward" /> </span>
                 </div>
-                <p>01:06/03:46</p>
+                <p>{currentTime}</p>
             </div>
         </div>
     )

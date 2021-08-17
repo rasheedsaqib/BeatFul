@@ -27,7 +27,7 @@ const Library = props => {
 
             <div style={{transform: `translateX(${transform}px)`}} className={styles.artists}>
                 {artists.map(artist => (
-                    <Artist key={artist.name} image={'/thumbnails/' + artist.image + '.jpg'} name={artist.name} total={artist.songs} />
+                    <Artist key={artist.name} image={'/thumbnails/' + artist.image + '.jpg'} name={artist.name} total={artist.songs} id={artist.id} />
                 ))}
 
                 {/*<Artist image='qb.jpg' name='Quratulain Balouch' total='10' />*/}

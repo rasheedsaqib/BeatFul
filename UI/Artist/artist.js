@@ -5,7 +5,7 @@ const Artist = props => {
     return(
         <div className={styles.artist}>
             <div className={styles.image}>
-                <Link href='/songs'><a>
+                <Link href={`/artists/${props.id}`}><a>
                     <img src={props.image} />
                 </a></Link>
             </div>

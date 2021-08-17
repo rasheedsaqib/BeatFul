@@ -1,24 +1,24 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
 export const songsDb = [
-  { id: 'b1w7dndtos', title: 'Faasle - Kaavish & Quratulain Balouch', artist: 'Quratulain Balouch', likes: 364, views: 4937 },
-  { id: 'g0nz8yircx', title: 'Latthay Di Chaadar - Quratulain Balouch', artist: 'Quratulain Balouch', likes: 310, views: 10458 },
-  { id: 'xachb5smdeh', title: 'Woh Humsafar Tha - Quratulain Balouch', artist: 'Quratulain Balouch', likes: 290, views: 8506 },
-  { id: 'h129x8c6jt', title: 'Tere Nal Main Layian - Quratulain Balouch', artist: 'Quratulain Balouch', likes: 277, views: 9577 },
-  { id: '5h7blv41aai', title: 'Judaai - Quratulain Balouch', artist: 'Quratulain Balouch', likes: 243, views: 9564 },
-  { id: 'c7r0q7c43b', title: 'Morey Saiyaan - Quratulain Balouch', artist: 'Quratulain Balouch', likes: 373, views: 7137 },
-  { id: '3zm554zhm2', title: 'Laal Meri Pat - Quratulain Balouch', artist: 'Quratulain Balouch', likes: 414, views: 5737 },
-  { id: 'gyoczijd53', title: 'Mundiya - Quratulain Balouch', artist: 'Quratulain Balouch', likes: 408, views: 10997 },
-  { id: '4w00r2faosl', title: 'Same Beef Song - Sidhu Moose Wala', artist: 'Sidhu Moose Wala', likes: 213, views: 4440 },
-  { id: 'fpjewtvv8f', title: 'These Days - Sidhu Moose Wala', artist: 'Sidhu Moose Wala', likes: 207, views: 3653 },
-  { id: 'hrb6jmi59uk', title: 'So High - Sidhu Moose Wala', artist: 'Sidhu Moose Wala', likes: 320, views: 6651 },
-  { id: 'gcpk1aghie', title: '295 - Sidhu Moose Wala', artist: 'Sidhu Moose Wala', likes: 464, views: 2296 },
-  { id: 'yisdv0989ch', title: 'GOAT - Sidhu Moose Wala', artist: 'Sidhu Moose Wala', likes: 447, views: 6294 },
-  { id: 'y9x8shg8wg', title: 'Burberry - Sidhu Moose Wala', artist: 'Sidhu Moose Wala', likes: 404, views: 2177 },
-  { id: 'fa6h6p9wkc', title: 'Jatt Da Muqabala - Sidhu Moose Wala', artist: 'Sidhu Moose Wala', likes: 210, views: 1005 },
-  { id: 'hjzrp0s15f', title: 'Selfmade - Sidhu Moose Wala', artist: 'Sidhu Moose Wala', likes: 306, views: 6483 },
-  { id: 'oqtm8gkj6a', title: 'Devil - Sidhu Moose Wala', artist: 'Sidhu Moose Wala', likes: 305, views: 7134 },
-  { id: 'vomai6oovv', title: 'Legend - Sidhu Moose Wala', artist: 'Sidhu Moose Wala', likes: 379, views: 10928 },
+  { id: 'b1w7dndtos', title: 'Faasle - Kaavish & Quratulain Balouch', artist: 'Quratulain Balouch', artistId: '3302taz9x2', likes: 364, views: 4937 },
+  { id: 'g0nz8yircx', title: 'Latthay Di Chaadar - Quratulain Balouch', artist: 'Quratulain Balouch', artistId: '3302taz9x2', likes: 310, views: 10458 },
+  { id: 'xachb5smdeh', title: 'Woh Humsafar Tha - Quratulain Balouch', artist: 'Quratulain Balouch', artistId: '3302taz9x2', likes: 290, views: 8506 },
+  { id: 'h129x8c6jt', title: 'Tere Nal Main Layian - Quratulain Balouch', artist: 'Quratulain Balouch', artistId: '3302taz9x2', likes: 277, views: 9577 },
+  { id: '5h7blv41aai', title: 'Judaai - Quratulain Balouch', artist: 'Quratulain Balouch', artistId: '3302taz9x2', likes: 243, views: 9564 },
+  { id: 'c7r0q7c43b', title: 'Morey Saiyaan - Quratulain Balouch', artist: 'Quratulain Balouch', artistId: '3302taz9x2', likes: 373, views: 7137 },
+  { id: '3zm554zhm2', title: 'Laal Meri Pat - Quratulain Balouch', artist: 'Quratulain Balouch', artistId: '3302taz9x2', likes: 414, views: 5737 },
+  { id: 'gyoczijd53', title: 'Mundiya - Quratulain Balouch', artist: 'Quratulain Balouch', artistId: '3302taz9x2', likes: 408, views: 10997 },
+  { id: '4w00r2faosl', title: 'Same Beef Song - Sidhu Moose Wala', artist: 'Sidhu Moose Wala', artistId: 'cittojllp8', likes: 213, views: 4440 },
+  { id: 'fpjewtvv8f', title: 'These Days - Sidhu Moose Wala', artist: 'Sidhu Moose Wala', artistId: 'cittojllp8', likes: 207, views: 3653 },
+  { id: 'hrb6jmi59uk', title: 'So High - Sidhu Moose Wala', artist: 'Sidhu Moose Wala', artistId: 'cittojllp8', likes: 320, views: 6651 },
+  { id: 'gcpk1aghie', title: '295 - Sidhu Moose Wala', artist: 'Sidhu Moose Wala', artistId: 'cittojllp8', likes: 464, views: 2296 },
+  { id: 'yisdv0989ch', title: 'GOAT - Sidhu Moose Wala', artist: 'Sidhu Moose Wala', artistId: 'cittojllp8', likes: 447, views: 6294 },
+  { id: 'y9x8shg8wg', title: 'Burberry - Sidhu Moose Wala', artist: 'Sidhu Moose Wala', artistId: 'cittojllp8', likes: 404, views: 2177 },
+  { id: 'fa6h6p9wkc', title: 'Jatt Da Muqabala - Sidhu Moose Wala', artist: 'Sidhu Moose Wala', artistId: 'cittojllp8', likes: 210, views: 1005 },
+  { id: 'hjzrp0s15f', title: 'Selfmade - Sidhu Moose Wala', artist: 'Sidhu Moose Wala', artistId: 'cittojllp8', likes: 306, views: 6483 },
+  { id: 'oqtm8gkj6a', title: 'Devil - Sidhu Moose Wala', artist: 'Sidhu Moose Wala', artistId: 'cittojllp8', likes: 305, views: 7134 },
+  { id: 'vomai6oovv', title: 'Legend - Sidhu Moose Wala', artist: 'Sidhu Moose Wala', artistId: 'cittojllp8', likes: 379, views: 10928 },
   // { id: 'e40661akxq', title: '', artist: '', likes: 446, views: 6278 },
   // { id: '1ikx9a8tm5', title: '', artist: '', likes: 329, views: 5723 },
   // { id: 'x3a0itwpwm', title: '', artist: '', likes: 424, views: 4407 },
@@ -54,13 +54,9 @@ export const songsDb = [
 ]
 
 export const artistsDB = [
-    {name: 'Quratulain Balouch', songs: 8, image: 'b1w7dndtos'},
-    {name: 'Sidhu Moose Wala', songs: 10, image: 'yisdv0989ch'},
-    {name: 'Taylor Swift', songs: 0, image: 'taylor'},
-
-    {name: 'Quratulain Balouch', songs: 8, image: 'b1w7dndtos'},
-    {name: 'Sidhu Moose Wala', songs: 10, image: 'yisdv0989ch'},
-    {name: 'Taylor Swift', songs: 0, image: 'taylor'},
+    {id: '3302taz9x2', name: 'Quratulain Balouch', songs: 8, image: 'b1w7dndtos'},
+    {id: 'cittojllp8', name: 'Sidhu Moose Wala', songs: 10, image: 'yisdv0989ch'},
+    {id: 'tb6fraz0z1', name: 'Taylor Swift', songs: 0, image: 'taylor'},
 ];
 
 export default (req, res) => {

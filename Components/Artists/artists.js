@@ -32,7 +32,7 @@ const Artists = props => {
                     artists.map((artist, index) => {
                         if(index >= start && index < start+9){
                             return(
-                                <Artist key={artist.name} image={'/thumbnails/' + artist.image + '.jpg'} name={artist.name} total={artist.songs} />
+                                <Artist key={artist.name} image={'/thumbnails/' + artist.image + '.jpg'} name={artist.name} total={artist.songs} id={artist.id} />
                             )
                         }
                     })
