@@ -1,0 +1,16 @@
+@import "styles/variables";
+@import "styles/mixins";
+
+.wave{
+    width: 100%;
+    height: 40px;
+    margin-bottom: 2px;
+    @include flex(flex, row, center, flex-end);
+
+    .column{
+        width: 1.2%;
+        background: $black;
+        margin: 0 0.3%;
+        transition: height 0.4s ease;
+    }
+}

@@ -125,21 +125,10 @@
       position: relative;
       height: 38px;
 
-      img{
-        width: 95%;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        top: 0;
-      }
-
       .line{
         height: 3px;
         width: 100%;
         background: $black;
-        position: absolute;
-        left: 0;
-        bottom: 0;
       }
     }
 

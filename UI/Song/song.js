@@ -19,7 +19,7 @@ const Song = props => {
                         <span><i className="fas fa-heart" /></span>
                         <p>{props.likes}</p>
                     </div>
-                    <p>({props.views} Views)</p>
+                    <p>({props.views < 1000 ? props.views : (props.views/1000).toFixed(1)+ 'k'} Views)</p>
                 </div>
 
             </div>

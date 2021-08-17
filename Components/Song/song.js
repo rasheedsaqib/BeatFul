@@ -1,5 +1,7 @@
-import styles from './song.module.scss';
 import {useEffect, useRef, useState} from "react";
+
+import styles from './song.module.scss';
+import Wave from "./Wave/wave";
 
 const Song = props => {
 
@@ -10,12 +12,23 @@ const Song = props => {
     const [currentTime, setCurrentTime] = useState('00:00');
 
     useEffect(()=>{
-        audio.addEventListener('timeupdate', context => {
-            const s = parseInt(context.target.duration % 60);
-            const m = parseInt((context.target.duration / 60) % 60);
+       audio.addEventListener('ended', ()=>{
+           setPlaying(false);
+       });
+    });
 
-            setCurrentTime(new Date(Math.floor(context.target.currentTime * 1000)).toISOString().substr(14, 5) + ' / ' + (m<10 ? '0'+m : m) +':'+ s);
-        })
+    useEffect(()=>{
+        const ac = new AbortController();
+        audio.addEventListener('timeupdate', context => {
+            const durationSeconds = (context.target.duration % 60).toFixed(0);
+            const durationMinutes = ((context.target.duration / 60) % 60).toFixed(0);
+
+            setCurrentTime(new Date(Math.floor(context.target.currentTime * 1000)).toISOString().substr(14, 5)
+                + ' / '+ (durationMinutes<10 ? '0'+durationMinutes : durationMinutes) + ':' + (durationSeconds<10 ? '0'+durationSeconds : durationSeconds));
+        });
+
+        return ac.abort();
+
     }, [currentTime]);
 
     const togglePlay = ()=>{
@@ -26,6 +39,18 @@ const Song = props => {
         else {
             audio.play();
             setPlaying(true);
+        }
+    }
+
+    const increaseCurrentTime = () => {
+        if(audio.currentTime < (audio.duration - 6)){
+            audio.currentTime += 5;
+        }
+    }
+
+    const decreaseCurrentTime = () => {
+        if(audio.currentTime > 6){
+            audio.currentTime -= 5;
         }
     }
 
@@ -46,7 +71,7 @@ const Song = props => {
                             <span><i className="fas fa-heart" /></span>
                             <p>{song.likes}</p>
                         </div>
-                        <p>({song.views} Views)</p>
+                        <p>({song.views < 1000 ? song.views : (song.views/1000).toFixed(1)+ 'k'} Views)</p>
                     </div>
 
                 </div>
@@ -66,13 +91,13 @@ const Song = props => {
 
             <div className={styles.controller}>
                 <div className={styles.duration}>
-                    <img src='/wave.png' />
+                    <Wave playing={playing} />
                     <div className={styles.line} />
                 </div>
                 <div className={styles.actions}>
-                    <span className={styles.prev}><i className="fas fa-step-backward" /></span>
+                    <span onClick={()=>decreaseCurrentTime()} className={styles.prev}><i className="fas fa-step-backward" /></span>
                     <span onClick={()=>togglePlay()} className={styles.play}> { playing ? (<i className="fas fa-pause"/>) : (<i className="fas fa-play" />) } </span>
-                    <span className={styles.next}><i className="fas fa-step-forward" /> </span>
+                    <span onClick={()=>increaseCurrentTime()} className={styles.next}><i className="fas fa-step-forward" /> </span>
                 </div>
                 <p>{currentTime}</p>
             </div>
