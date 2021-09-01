@@ -5,25 +5,10 @@ import Experience from "../Components/Index/Experience/experience";
 import Reviews from "../Components/Index/Reviews/reviews";
 import withWidth from "../HOC/withWidth/withWidth";
 import {useEffect, useState} from "react";
-import axios from "axios";
+import axios from "../axios";
+import {error} from "next/dist/build/output/log";
 
-const Home = () => {
-
-
-    const [trending, setTrending] = useState([]);
-    const [artists, setArtists] = useState([]);
-
-    useEffect(() => {
-        axios.get('/api/trending')
-            .then(res => {
-                setTrending(res.data);
-            });
-
-        axios.get('/api/artists')
-            .then(res => {
-                setArtists(res.data);
-            });
-    }, []);
+const Home = ({trending, artists}) => {
 
   return (
       <div style={{margin: '0 6%'}}>
@@ -34,6 +19,30 @@ const Home = () => {
           <Reviews />
       </div>
   )
+}
+
+export const getStaticProps = async (context) => {
+
+    let trending = [];
+    let artists = [];
+
+    try {
+        trending = await axios.get('/api/trending');
+        artists = await axios.get('/api/artists');
+    }
+    catch(error){
+        return {
+            notFound: true
+        }
+    }
+
+    return{
+        props: {
+            trending: trending.data,
+            artists: artists.data
+        },
+        revalidate: 10
+    }
 }
 
 export default withWidth(Home);

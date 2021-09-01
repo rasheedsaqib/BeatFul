@@ -29,9 +29,6 @@ const Library = props => {
                 {artists.map(artist => (
                     <Artist key={artist.name} image={'/thumbnails/' + artist.image + '.jpg'} name={artist.name} total={artist.songs} id={artist.id} />
                 ))}
-
-                {/*<Artist image='qb.jpg' name='Quratulain Balouch' total='10' />*/}
-                {/*<Artist image='sidhu.jpg' name='Sidhu Moose Wala' total='13' />*/}
             </div>
         </div>
     )
